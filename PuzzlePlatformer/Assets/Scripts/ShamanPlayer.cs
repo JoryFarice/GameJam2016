@@ -113,12 +113,12 @@ public class ShamanPlayer : MonoBehaviour {
 	{
 		if(other.gameObject.tag == ("Coin") && gameObject.tag == ("Player"))
 		{
-			gameController.playerScoreUp();
+		//	gameController.playerScoreUp();
 		}
 
 		if((other.gameObject.tag == ("Enemy") || other.gameObject.tag == ("Hazzard")) && gameObject.tag == ("Player"))
 		{
-			gameController.playerRespawn1();
+			//gameController.playerRespawn1();
 		}
 	}
 

@@ -3,14 +3,14 @@ using System.Collections;
 
 public class Enemy : MonoBehaviour
 {
-	public Player2 player2;
+	public Shaman player;
 
 	public int enemyHP;
 
 	// Use this for initialization
 	void Start ()
 	{
-		player2 = GameObject.FindGameObjectWithTag("Player2").GetComponent<Player2>();
+		player = GameObject.FindGameObjectWithTag("Player2").GetComponent<Shaman>();
 	}
 	
 	// Update is called once per frame
@@ -27,7 +27,7 @@ public class Enemy : MonoBehaviour
 		if(coll.gameObject.tag == ("PlayerBullet"))
 		{
 			Destroy(coll.gameObject);
-			player2.bulletCount--;
+			player.bulletCount--;
 			enemyHP--;
 		}
 	}

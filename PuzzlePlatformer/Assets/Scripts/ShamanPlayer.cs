@@ -87,12 +87,12 @@ public class Shaman : MonoBehaviour {
 
 	void OnTriggerEnter2D(Collider2D other)
 	{
-		if(other.gameObject.tag == ("Coin") && gameObject.tag == ("Player1"))
+		if(other.gameObject.tag == ("Coin") && gameObject.tag == ("Player"))
 		{
 			gameController.playerScoreUp();
 		}
 
-		if((other.gameObject.tag == ("Enemy") || other.gameObject.tag == ("Hazzard")) && gameObject.tag == ("Player1"))
+		if((other.gameObject.tag == ("Enemy") || other.gameObject.tag == ("Hazzard")) && gameObject.tag == ("Player"))
 		{
 			gameController.playerRespawn1();
 		}
@@ -120,12 +120,12 @@ public class Shaman : MonoBehaviour {
 
 	public void PlayerControls()
 	{
-		if(grounded && gameObject.tag == ("Player1"))
+		if(grounded && gameObject.tag == ("Player"))
 		{
 			doubleJumped = 1;
 		}
 
-		if(grounded && gameObject.tag == ("Player1") && !Input.GetButton("Run"))
+		if(grounded && gameObject.tag == ("Player") && !Input.GetButton("Run"))
 		{
 			moveSpeed = 7;
 		}
@@ -134,14 +134,14 @@ public class Shaman : MonoBehaviour {
 		moveVelocity = moveSpeed * Input.GetAxisRaw("Horizontal");
 		GetComponent<Rigidbody2D>().velocity = new Vector2(moveVelocity, GetComponent<Rigidbody2D>().velocity.y);
 
-		if(Input.GetButtonDown("Jump") && grounded && gameObject.tag == ("Player1"))
+		if(Input.GetButtonDown("Jump") && grounded && gameObject.tag == ("Player"))
 		{
 			//to make the character jump
 			//Vector2 holds an x and a y value
 			jump();
 		}
 
-		if(Input.GetButtonDown("Jump") && doubleJumped > 0 && !grounded && gameObject.tag == ("Player1"))
+		if(Input.GetButtonDown("Jump") && doubleJumped > 0 && !grounded && gameObject.tag == ("Player"))
 		{
 			jump();
 			doubleJumped -= 1;

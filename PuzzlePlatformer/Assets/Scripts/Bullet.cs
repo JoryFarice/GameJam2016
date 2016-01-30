@@ -7,8 +7,8 @@ using System.Collections;
 public class Bullet : MonoBehaviour {
 
 	public float moveSpeed;
-	public Player2 player2Script;
-	public  GameObject player2;
+	public Shaman shamanScript;
+	public  GameObject player;
 	private float timer;
 
 	// Use this for initialization
@@ -16,11 +16,11 @@ public class Bullet : MonoBehaviour {
 	{
 		
 
-		player2Script = GameObject.FindGameObjectWithTag("Player2").GetComponent<Player2>();
+		shamanScript = GameObject.FindGameObjectWithTag("Player").GetComponent<Shaman>();
 
-		player2 = GameObject.FindGameObjectWithTag("Player2");
+		player = GameObject.FindGameObjectWithTag("Player");
 
-		if(player2.transform.localScale.x < 0 )
+		if(player.transform.localScale.x < 0 )
 		{
 			moveSpeed = -moveSpeed;
 			//Debug.Log("Fuck me Right?");
@@ -36,7 +36,7 @@ public class Bullet : MonoBehaviour {
 		if(timer >= .75f)
 		{
 			Debug.Log("fuck me right?");
-			player2Script.bulletCount--;
+			shamanScript.bulletCount--;
 			Destroy (gameObject);
 		}
 	}
@@ -44,6 +44,6 @@ public class Bullet : MonoBehaviour {
 	void OnTriggerEnter2D(Collider2D other) 
 	{
 		//Debug.Log("balllllls");
-		player2Script.bulletCount--;
+		shamanScript.bulletCount--;
 	}
 }

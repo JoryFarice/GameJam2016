@@ -57,6 +57,7 @@
      <Compile Include="Assets\Scripts\Player1.cs" />
      <Compile Include="Assets\Scripts\Player2.cs" />
      <Compile Include="Assets\Scripts\Player3.cs" />
+     <Compile Include="Assets\Scripts\SelfDestructScript.cs" />
      <Compile Include="Assets\Scripts\ShamanPlayer.cs" />
      <Compile Include="Assets\Scripts\SpawnDestroyStepPlate.cs" />
      <Compile Include="Assets\Scripts\TimerPlus.cs" />

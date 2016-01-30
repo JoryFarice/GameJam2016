@@ -47,10 +47,10 @@ public class GameController : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
 	{
-		if(danceActive == true)
-		{
-			arrow1.
-		}
+		//if(danceActive == true)
+		//{
+		//	arrow1.
+		//}
 		
 		waitTime -= Time.deltaTime;
 		if(waitTime <= 0)

@@ -38,14 +38,14 @@ public class PickUpObject : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-		if (Input.GetButtonUp("Fire1"))
+		if (Input.GetButtonUp("PickUp"))
 		{
 			thisObject.transform.parent = null;
 			isHoldingSomething = false;
 			this.GetComponent<BoxCollider2D>().size = new Vector2 (1f , 1f);
 		}
 
-		if (isHoldingSomething == false && Input.GetButton("Fire1") && isTouching == true)
+		if (isHoldingSomething == false && Input.GetButton("PickUp") && isTouching == true)
 		{
 			thisObject.transform.parent = player3.transform;
 			isHoldingSomething = true;

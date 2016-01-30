@@ -44,6 +44,6 @@ public class Bullet : MonoBehaviour {
 	void OnTriggerEnter2D(Collider2D other) 
 	{
 		//Debug.Log("balllllls");
-		shamanScript.bulletCount--;
+	//	shamanScript.bulletCount--;
 	}
 }

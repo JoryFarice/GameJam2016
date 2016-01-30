@@ -29,11 +29,9 @@ public class ShamanPlayer : MonoBehaviour {
 	private float timer;
 	private int danceFail;
 	private float random;
-	//private int arrow;
+	private int arrow;
 	private bool rolled;
 	public bool pressed;
-
-	public int ddrInput;
 
 	public float test;
 
@@ -84,14 +82,12 @@ public class ShamanPlayer : MonoBehaviour {
 
 		Dance();
 
-		controls();
-
-		/*if((Input.GetAxisRaw("DDRHori") != 0))
+		if((Input.GetAxisRaw("DDRHori") != 0))
 		Debug.Log(Input.GetAxisRaw("DDRHori"));
 		
 		if((Input.GetAxisRaw("DDRVert") != 0))
 			Debug.Log(Input.GetAxisRaw("DDRVert"));
-*/
+
 
 	}
 
@@ -115,14 +111,10 @@ public class ShamanPlayer : MonoBehaviour {
 
 	void OnTriggerEnter2D(Collider2D other)
 	{
-		if(other.gameObject.tag == ("Coin") && gameObject.tag == ("Player"))
-		{
-		//	gameController.playerScoreUp();
-		}
 
 		if((other.gameObject.tag == ("Enemy") || other.gameObject.tag == ("Hazzard")) && gameObject.tag == ("Player"))
 		{
-			//gameController.playerRespawn1();
+			gameController.playerRespawn();
 		}
 	}
 
@@ -201,6 +193,7 @@ public class ShamanPlayer : MonoBehaviour {
 	public void Dance()
 	{
 		if(danceFail == 3)
+			gameController.playerRespawn();
 			Debug.Log("You lose");
 
 		if(timer >= 4)//these next two lines will set rolled to false so the thing can roll again
@@ -210,9 +203,9 @@ public class ShamanPlayer : MonoBehaviour {
 		{
 			dancing = false;//turn player controls off
 			danceFail += 1;//reset the counter to reset to checkpoint if you get to three it respawns
-			random = Random.Range(0 , 3);//set the random range from 0-4
+			random = Random.Range(0 , 4);//set the random range from 0-4
 			timer = 0;//sets timer to 0
-			Debug.Log("Arrow: " + random);
+			Debug.Log("Arrow: " + arrow);
 		}
 		else
 			if(timer >= 4.2f && pressed == true && rolled == false ) //if you press the correct button
@@ -221,7 +214,7 @@ public class ShamanPlayer : MonoBehaviour {
 				danceFail = 0;//reset the counter to reset to checkpoint if you get to three it respawns
 				random = Random.Range(0 , 4);//set the random range from 0-4
 				timer = 0;//sets timer to 0
-				Debug.Log("Arrow: " + random);
+				Debug.Log("Arrow: " + arrow);
 			}
 
 		//this will reset pressed making the player have to press the next button
@@ -231,71 +224,58 @@ public class ShamanPlayer : MonoBehaviour {
 
 		#region set arrows
 		//these next few will make it so the random chooses an arrow int that will be chosen
-		/*if(random == 1)
+		if(random < 1)
+			Debug.Log("Random: " + random);
 			arrow = 0;//arrow 0 = left
 
-		if(random == 2)
+		if(random >= 1 && random < 2)
+			Debug.Log("Random: " + random);
 			arrow = 1;//arrow 1 = right
 
 
-		if(random == 3)
+		if(random >= 2 && random < 3)
+			Debug.Log("Random: " + random);
 			arrow = 2;//arrow 2 = down
 
-		if(random == 4)
-			arrow = 3;//arrow 3 = up*/
+		if(random >= 3)
+			Debug.Log("Random: " + random);
+			arrow = 3;//arrow 3 = up
 		#endregion
 
-		if(random == 0 && ddrInput == 0 && pressed == false)
+		if(arrow == 0 && (Input.GetAxisRaw("DDRHori") == -1))
 		{
 			pressed = true;
 			Debug.Log("Pressed left: 0");
 		}
+		else
+			if((Input.GetAxisRaw("DDRHori") == 1) || (Input.GetAxisRaw("DDRVert") == -1) || (Input.GetAxisRaw("DDRVert") == 1))
+				arrow = 5;//set arrow to an impossible variable to get if you mess up after this it should show an arrow failed
 
-
-		if(random == 1 && ddrInput == 1 && pressed == false)
+		if(arrow == 1 && (Input.GetAxisRaw("DDRHori") == 1))
 		{
 			pressed = true;
 			Debug.Log("Pressed right: 1");
 		}
+		else
+			if((Input.GetAxisRaw("DDRHori") == -1) || (Input.GetAxisRaw("DDRVert") == -1) || (Input.GetAxisRaw("DDRVert") == 1))
+				arrow = 5;//set arrow to an impossible variable to get if you mess up after this it should show an arrow failed
 
-
-
-		if(random == 2 && ddrInput == 2 && pressed == false)
+		if(arrow == 2 && (Input.GetAxisRaw("DDRVert") == -1))
 		{
 			pressed = true;
 			Debug.Log("Pressed down: 2");
 		}
+		else
+			if((Input.GetAxisRaw("DDRHori") == 1) || (Input.GetAxisRaw("DDRHori") == -1) || (Input.GetAxisRaw("DDRVert") == 1))
+				arrow = 5;//set arrow to an impossible variable to get if you mess up after this it should show an arrow failed
 
-
-		if(random == 3 && ddrInput == 3 && pressed == false)
+		if(arrow == 3 && (Input.GetAxisRaw("DDRVert") == 1))
 		{
 			pressed = true;
 			Debug.Log("Pressed up: 3");
 		}
-
-
-							
-	}
-
-	public void controls()
-	{
-		if(Input.GetAxisRaw("DDRHori") < -.5)
-			ddrInput = 0;
 		else
-
-		if(Input.GetAxisRaw("DDRHori") > .5)
-			ddrInput = 1;
-		else
-
-		if(Input.GetAxisRaw("DDRVert") < -.5)
-			ddrInput = 2;
-		else
-
-		if(Input.GetAxisRaw("DDRVert") > .5)
-			ddrInput = 3;
-					else
-						ddrInput = -1;
-
-
+			if((Input.GetAxisRaw("DDRHori") == 1) || (Input.GetAxisRaw("DDRVert") == -1) || (Input.GetAxisRaw("DDRHori") == -1))
+				arrow = 5;//set arrow to an impossible variable to get if you mess up after this it should show an arrow failed
 	}
 }

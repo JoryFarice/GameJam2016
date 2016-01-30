@@ -15,7 +15,8 @@ public class GameController : MonoBehaviour
 	public int playerHP;
 	public int playerScore;
 	public int playerAmmo;
-	public float timer;
+	public int timer;
+	public float waitTime = 1f;
 
 	private Text scoreText;
 	private Slider healthBar;
@@ -65,7 +66,12 @@ public class GameController : MonoBehaviour
 	void Update ()
 	{
 		healthBar.value = playerHP;
-		timer -= Time.deltaTime;
+		waitTime -= Time.deltaTime;
+		if(waitTime <= 0)
+		{
+		timer -= 1;
+		waitTime = 1;
+		}
 
 		timerText.text = ("Time: " + timer);
 		scoreText.text = ("Score: " + playerScore);

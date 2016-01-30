@@ -8,6 +8,7 @@ using System.Collections;
 
 public class PickUpObject : MonoBehaviour {
 
+
 	private bool isHoldingSomething = false;
 	private bool isTouching = false;
 	private GameObject thisObject;

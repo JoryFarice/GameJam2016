@@ -1,18 +1,13 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\MovingPlatforms.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/GameController.cs">
     <Files>
-      <File FileName="Assets\Scripts\MovingPlatforms.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\PickUpObject.cs" Line="34" Column="66" />
-      <File FileName="Assets\Scripts\BreakingPlatform.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Bullet.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\SpawnDestroyStepPlate.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\GameController.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Enemy.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Player1.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Player2.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Player3.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\LevelManager.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/GameController.cs" Line="19" Column="8" />
+      <File FileName="Assets/Scripts/PickUpObject.cs" Line="10" Column="1" />
+      <File FileName="Assets/Scripts/ItemPickup.cs" Line="6" Column="12" />
+      <File FileName="Assets/Scripts/ShamanPlayer.cs" Line="86" Column="3" />
+      <File FileName="Assets/Scripts/TimerPlus.cs" Line="13" Column="7" />
+      <File FileName="Assets/Scripts/Player1.cs" Line="10" Column="39" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

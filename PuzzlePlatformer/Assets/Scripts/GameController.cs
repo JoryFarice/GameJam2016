@@ -92,6 +92,15 @@ public class GameController : MonoBehaviour
 			arrow4.enabled = false;
 		}
 
+		if(player.timer >= 4.2f)
+		{
+			arrow1.enabled = false;
+			arrow2.enabled = false;
+			arrow3.enabled = false;
+			arrow4.enabled = false;
+			player.timer = 0f;
+		}
+
 		
 		waitTime -= Time.deltaTime;
 		if(waitTime <= 0)

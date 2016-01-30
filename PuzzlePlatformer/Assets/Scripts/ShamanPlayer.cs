@@ -26,7 +26,7 @@ public class ShamanPlayer : MonoBehaviour {
 	public GameObject mcBullet;
 	public Transform playerShootPosition;
 	public bool dancing = true;
-	private float timer;
+	public float timer;
 	private int danceFail;
 	public float random;
 	private int arrow;

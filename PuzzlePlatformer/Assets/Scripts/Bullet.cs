@@ -7,7 +7,7 @@ using System.Collections;
 public class Bullet : MonoBehaviour {
 
 	public float moveSpeed;
-	public Shaman shamanScript;
+	public ShamanPlayer shamanScript;
 	public  GameObject player;
 	private float timer;
 
@@ -16,7 +16,7 @@ public class Bullet : MonoBehaviour {
 	{
 		
 
-		shamanScript = GameObject.FindGameObjectWithTag("Player").GetComponent<Shaman>();
+		shamanScript = GameObject.FindGameObjectWithTag("Player").GetComponent<ShamanPlayer>();
 
 		player = GameObject.FindGameObjectWithTag("Player");
 

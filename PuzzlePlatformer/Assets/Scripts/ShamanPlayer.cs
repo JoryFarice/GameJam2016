@@ -6,7 +6,7 @@
 using UnityEngine;
 using System.Collections;
 
-public class Shaman : MonoBehaviour {
+public class ShamanPlayer : MonoBehaviour {
 	public GameController gameController;
 
 	public GameObject CamTar;
@@ -153,6 +153,10 @@ public class Shaman : MonoBehaviour {
 		}
 
 
+		if(Input.GetButtonDown("Shoot")  &&  bulletCount < 3)
+		{
+			shoot();
+		}
 
 
 

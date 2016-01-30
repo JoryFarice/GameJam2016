@@ -3,14 +3,14 @@ using System.Collections;
 
 public class Enemy : MonoBehaviour
 {
-	public Shaman player;
+	public ShamanPlayer player;
 
 	public int enemyHP;
 
 	// Use this for initialization
 	void Start ()
 	{
-		player = GameObject.FindGameObjectWithTag("Player2").GetComponent<Shaman>();
+		player = GameObject.FindGameObjectWithTag("Player").GetComponent<ShamanPlayer>();
 	}
 	
 	// Update is called once per frame

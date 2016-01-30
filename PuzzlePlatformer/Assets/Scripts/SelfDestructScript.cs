@@ -3,9 +3,12 @@ using System.Collections;
 
 public class SelfDestructScript : MonoBehaviour
 {
-	void Start()
+	void Update()
 	{
+		if(Time.deltaTime >= 5)
+		{
 		Destroy(this.gameObject,5f);
+		}
 	}
 }
 

@@ -17,9 +17,11 @@ public class TimerPlus : ItemPickUp
 			if(control.timer >= 471)
 			{
 				control.timer = 500;
+				Destroy(gameObject);
 			}
 			else{
 			control.timer += 30;
+			Destroy(gameObject);
 			}
 		}		
 	}

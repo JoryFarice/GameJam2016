@@ -235,6 +235,7 @@ public class ShamanPlayer : MonoBehaviour {
 		if(random == 0 && ddrInput == 0 && pressed == false)
 		{
 			pressed = true;
+			dancing = true;
 			Debug.Log("Pressed left: 0");
 		}
 
@@ -242,6 +243,7 @@ public class ShamanPlayer : MonoBehaviour {
 		if(random == 1 && ddrInput == 1 && pressed == false)
 		{
 			pressed = true;
+			dancing = true;
 			Debug.Log("Pressed right: 1");
 		}
 
@@ -250,6 +252,7 @@ public class ShamanPlayer : MonoBehaviour {
 		if(random == 2 && ddrInput == 2 && pressed == false)
 		{
 			pressed = true;
+			dancing = true;
 			Debug.Log("Pressed down: 2");
 		}
 
@@ -257,6 +260,7 @@ public class ShamanPlayer : MonoBehaviour {
 		if(random == 3 && ddrInput == 3 && pressed == false)
 		{
 			pressed = true;
+			dancing = true;
 			Debug.Log("Pressed up: 3");
 		}
 

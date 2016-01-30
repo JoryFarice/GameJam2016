@@ -13,8 +13,8 @@ public class GameController : MonoBehaviour
 	public float waitTime = 1f;
 
 	private Text timerText;
-	private RawImage arrow1, arrow2, arrow3, arrow4;
-	private bool danceActive = false;
+	private RawImage arrow1, arrow2, arrow3, arrow4, needs, pressssssed, wrong;
+	//private bool danceActive = false;
 	private ShamanPlayer player;
 	private float random;
 
@@ -45,62 +45,16 @@ public class GameController : MonoBehaviour
 		arrow3 = GameObject.Find("ArrowLeft").GetComponent<RawImage>();
 		arrow4 = GameObject.Find("ArrowDown").GetComponent<RawImage>();
 		player = GameObject.Find("Shaman").GetComponent<ShamanPlayer>();
-		danceActive = player.dancing;
+		needs = GameObject.Find("NeedsPress").GetComponent<RawImage>();
+		wrong = GameObject.Find("Wrong").GetComponent<RawImage>();
+		pressssssed = GameObject.Find("Pressed").GetComponent<RawImage>();
 
 	}
 
 	// Update is called once per frame
 	void Update ()
 	{
-		danceActive = player.dancing; //Check if the player is currently dancing.
-
-		//This segment will turn the arrows on and off in accordance to what arrow the game expects the player to press. 
-		if(player.random == 0 && danceActive && player.pressed == false) //If the "left" arrow is the one the player wants...
-		{
-			arrow1.enabled = false;
-			arrow2.enabled = false;
-			arrow3.enabled = true;
-			arrow4.enabled = false;
-		}
-		if(player.random == 1 && danceActive && player.pressed == false) //If the "right" arrow is the one the player wants... 
-		{
-			arrow1.enabled = false;
-			arrow2.enabled = true;
-			arrow3.enabled = false;
-			arrow4.enabled = false;
-		}
-		if(player.random == 2 && danceActive && player.pressed == false) //If the "down" arrow is the one the player wants...
-		{
-			arrow1.enabled = false;
-			arrow2.enabled = false;
-			arrow3.enabled = false;
-			arrow4.enabled = true;
-		}
-		if(player.random == 3 && danceActive && player.pressed == false) //If the "up" arrow is the one the player wants...
-		{
-			arrow1.enabled = true;
-			arrow2.enabled = false;
-			arrow3.enabled = false;
-			arrow4.enabled = false;
-		}
-
-		if(player.pressed == true)
-		{
-			arrow1.enabled = false;
-			arrow2.enabled = false;
-			arrow3.enabled = false;
-			arrow4.enabled = false;
-		}
-
-		if(player.timer >= 4.2f)
-		{
-			arrow1.enabled = false;
-			arrow2.enabled = false;
-			arrow3.enabled = false;
-			arrow4.enabled = false;
-			player.timer = 0f;
-		}
-
+		arrowAppearence();
 		
 		waitTime -= Time.deltaTime;
 		if(waitTime <= 0)
@@ -118,4 +72,57 @@ public class GameController : MonoBehaviour
 		GameObject.FindGameObjectWithTag ("Player").transform.position = GameObject.FindGameObjectWithTag ("Spawn").transform.position;
 	}
 
+	public void arrowAppearence()
+	{
+		//This segment will turn the arrows on and off in accordance to what arrow the game expects the player to press. 
+		if(player.random == 0 && player.pressed == false) //If the "left" arrow is the one the player wants...
+		{
+			arrow1.enabled = false;
+			arrow2.enabled = false;
+			arrow3.enabled = true;
+			arrow4.enabled = false;
+		}
+		if(player.random == 1 && player.pressed == false) //If the "right" arrow is the one the player wants... 
+		{
+			arrow1.enabled = false;
+			arrow2.enabled = true;
+			arrow3.enabled = false;
+			arrow4.enabled = false;
+		}
+		if(player.random == 2 && player.pressed == false) //If the "down" arrow is the one the player wants...
+		{
+			arrow1.enabled = false;
+			arrow2.enabled = false;
+			arrow3.enabled = false;
+			arrow4.enabled = true;
+		}
+		if(player.random == 3 && player.pressed == false) //If the "up" arrow is the one the player wants...
+		{
+			arrow1.enabled = true;
+			arrow2.enabled = false;
+			arrow3.enabled = false;
+			arrow4.enabled = false;
+		}
+
+		if(player.pressed == true)
+		{
+			arrow1.enabled = false;
+			arrow2.enabled = false;
+			arrow3.enabled = false;
+			arrow4.enabled = false;
+			pressssssed.enabled = true;
+			needs.enabled = false;
+		}
+
+		else
+		{
+			needs.enabled = true;
+			pressssssed.enabled = false;
+		}
+
+		if (player.dancing == false)
+			wrong.enabled = true;
+		else
+			wrong.enabled = false;
+	}
 }

@@ -26,7 +26,7 @@ public class ShamanPlayer : MonoBehaviour {
 	public GameObject mcBullet;
 	public Transform playerShootPosition;
 	public bool dancing = true;
-	public float timer;
+	private float timer;
 	private int danceFail;
 	public float random;
 	private int arrow;
@@ -190,10 +190,10 @@ public class ShamanPlayer : MonoBehaviour {
 		if(danceFail == 3)
 			Debug.Log("You lose");
 
-		if(timer >= 4)//these next two lines will set rolled to false so the thing can roll again
+		if(timer >= 3)//these next two lines will set rolled to false so the thing can roll again
 			rolled = false;
 
-		if(timer >= 4.2f && pressed == false && rolled == false) //if you fail to press the button
+		if(timer >= 3.2f && pressed == false && rolled == false) //if you fail to press the button
 		{
 			dancing = false;//turn player controls off
 			danceFail += 1;//reset the counter to reset to checkpoint if you get to three it respawns
@@ -202,7 +202,7 @@ public class ShamanPlayer : MonoBehaviour {
 			Debug.Log("Arrow: " + random);
 		}
 		else
-			if(timer >= 4.2f && pressed == true && rolled == false ) //if you press the correct button
+			if(timer >= 3.2f && pressed == true && rolled == false ) //if you press the correct button
 			{
 				dancing = true;//keep player controls on
 				danceFail = 0;//reset the counter to reset to checkpoint if you get to three it respawns

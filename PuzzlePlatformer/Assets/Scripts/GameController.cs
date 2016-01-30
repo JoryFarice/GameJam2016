@@ -16,8 +16,7 @@ public class GameController : MonoBehaviour
 	private RawImage arrow1, arrow2, arrow3, arrow4;
 	private bool danceActive = false;
 	private ShamanPlayer player;
-	private float alpha0;
-	private float alpha255;
+	private float random;
 
 	private GameController control;
 
@@ -56,21 +55,43 @@ public class GameController : MonoBehaviour
 		danceActive = player.dancing; //Check if the player is currently dancing.
 
 		//This segment will turn the arrows on and off in accordance to what arrow the game expects the player to press. 
-		if(Input.GetKeyDown(KeyCode.J)) //Will change this to if the player is currently dancing. 
+		if(player.random == 0 && danceActive && player.pressed == false) //If the "left" arrow is the one the player wants...
 		{
-			arrow1.enabled = true;
-			arrow2.enabled = true;
+			arrow1.enabled = false;
+			arrow2.enabled = false;
 			arrow3.enabled = true;
+			arrow4.enabled = false;
+		}
+		if(player.random == 1 && danceActive && player.pressed == false) //If the "right" arrow is the one the player wants... 
+		{
+			arrow1.enabled = false;
+			arrow2.enabled = true;
+			arrow3.enabled = false;
+			arrow4.enabled = false;
+		}
+		if(player.random == 2 && danceActive && player.pressed == false) //If the "down" arrow is the one the player wants...
+		{
+			arrow1.enabled = false;
+			arrow2.enabled = false;
+			arrow3.enabled = false;
 			arrow4.enabled = true;
 		}
+		if(player.random == 3 && danceActive && player.pressed == false) //If the "up" arrow is the one the player wants...
+		{
+			arrow1.enabled = true;
+			arrow2.enabled = false;
+			arrow3.enabled = false;
+			arrow4.enabled = false;
+		}
 
-		if(Input.GetKeyDown(KeyCode.H)) //Testing enabling and disabling the arrows.
+		if(player.pressed == true)
 		{
 			arrow1.enabled = false;
 			arrow2.enabled = false;
 			arrow3.enabled = false;
 			arrow4.enabled = false;
 		}
+
 		
 		waitTime -= Time.deltaTime;
 		if(waitTime <= 0)

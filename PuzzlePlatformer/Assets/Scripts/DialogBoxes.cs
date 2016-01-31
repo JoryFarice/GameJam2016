@@ -8,7 +8,7 @@ public class DialogBoxes : MonoBehaviour
 	{
 		if(col.gameObject.tag == "Player" && (GameObject.FindGameObjectWithTag("Message")==null))
 		{
-		Instantiate(messagePrefab, new Vector2(this.transform.position.x, this.transform.position.y + 3),Quaternion.identity);
+		Instantiate(messagePrefab, new Vector2(this.transform.position.x, this.transform.position.y + 4),Quaternion.identity);
 		}
 	}
 }

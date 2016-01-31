@@ -7,18 +7,18 @@ using System.Collections;
 public class Bullet : MonoBehaviour {
 
 	public float moveSpeed;
-	public ShamanPlayer shamanScript;
+	public ShamanPlayer shammy;
 	public  GameObject player;
 	private float timer;
 
 	// Use this for initialization
 	void Start ()
 	{
-		
-
-		shamanScript = GameObject.FindGameObjectWithTag("Player").GetComponent<ShamanPlayer>();
-
 		player = GameObject.FindGameObjectWithTag("Player");
+
+		shammy = player.GetComponent<ShamanPlayer>();
+
+
 
 		if(player.transform.localScale.x < 0 )
 		{
@@ -31,12 +31,14 @@ public class Bullet : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
+		shammy = player.GetComponent<ShamanPlayer>();
+
 		timer += Time.deltaTime;
 
 		if(timer >= .75f)
 		{
 			Debug.Log("fuck me right?");
-			shamanScript.bulletCount--;
+			shammy.bulletCount--;
 			Destroy (gameObject);
 		}
 	}

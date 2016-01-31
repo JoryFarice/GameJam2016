@@ -6,7 +6,7 @@ public class MovingPlatforms : MonoBehaviour
 	private GameController gc;
 	private GameObject player;
 	private GameObject thisObject;
-	private bool isTouching = false;
+	public bool isTouching = false;
 	public float moveSpeed = 3f;
 	public bool horiFalseVertTrue;
 	private float timer;
@@ -65,13 +65,19 @@ public class MovingPlatforms : MonoBehaviour
 	void OnTriggerEnter2D(Collider2D other)
 	{
 		if(other.gameObject.tag == ("StepCheck"))
-			isTouching = true;
+		{
+			Debug.Log("balls");
+			//isTouching = true;
+		}
 	}
 
 	void OnTriggerExit2D(Collider2D other)
 	{
 		if(other.gameObject.tag == ("StepCheck"))
-			isTouching = false;
+			{
+				isTouching = false;
+				//Debug.Log("balls");
+			}
 	}
 }
 

@@ -66,16 +66,17 @@ public class GameController : MonoBehaviour
 
 		timerText.text = ("Time: " + timer);
 
-		if(timer <= 0)
+	/*	if(timer <= 0)
 		{
 			playerRespawn();
 			timer = 180;
-		}
+		}*/
 	}
 
 	public void playerRespawn ()
 	{
 		GameObject.FindGameObjectWithTag ("Player").transform.position = GameObject.FindGameObjectWithTag ("Spawn").transform.position;
+		//Debug.Log("i should respawn");
 	}
 
 	public void arrowAppearence()

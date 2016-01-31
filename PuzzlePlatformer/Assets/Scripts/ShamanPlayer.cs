@@ -84,6 +84,13 @@ public class ShamanPlayer : MonoBehaviour {
 		Dance();
 
 		controls();
+
+		if(gameController.timer <= -.5)
+		{
+			this.transform.position = GameObject.FindGameObjectWithTag ("Spawn").transform.position;
+			gameController.timer = 180;
+
+		}
 	}
 
 	#region player collisions
@@ -109,7 +116,12 @@ public class ShamanPlayer : MonoBehaviour {
 
 		if((other.gameObject.tag == ("Enemy") || other.gameObject.tag == ("Hazzard")) && gameObject.tag == ("Player"))
 		{
-			gameController.playerRespawn();
+			
+
+			this.transform.position = GameObject.FindGameObjectWithTag ("Spawn").transform.position;
+
+			Debug.Log("i should respawn");
+
 		}
 	}
 
@@ -169,11 +181,11 @@ public class ShamanPlayer : MonoBehaviour {
 		}
 
 
-		if(Input.GetButtonDown("Shoot")  &&  bulletCount < 3)
+		/*if(Input.GetButtonDown("Shoot")  &&  bulletCount < 3)
 		{
 			anim.SetBool("Shooting", true);
 			shoot();
-		}
+		}*/
 
 
 

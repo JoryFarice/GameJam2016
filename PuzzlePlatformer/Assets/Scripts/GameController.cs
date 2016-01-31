@@ -21,6 +21,7 @@ public class GameController : MonoBehaviour
 	private GameController control;
 
 
+
 	public void Awake()
 	{
 		if(control == null)
@@ -65,6 +66,11 @@ public class GameController : MonoBehaviour
 
 		timerText.text = ("Time: " + timer);
 
+		if(timer <= 0)
+		{
+			playerRespawn();
+			timer = 180;
+		}
 	}
 
 	public void playerRespawn ()

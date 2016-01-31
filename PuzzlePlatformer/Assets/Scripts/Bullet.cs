@@ -39,6 +39,7 @@ public class Bullet : MonoBehaviour {
 		{
 			Debug.Log("fuck me right?");
 			shammy.bulletCount--;
+			shammy.anim.SetBool("Shooting", false);
 			Destroy (gameObject);
 		}
 	}

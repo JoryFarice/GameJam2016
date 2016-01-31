@@ -12,7 +12,8 @@ public class PickUpObject : MonoBehaviour {
 	private bool isHoldingSomething = false;
 	private bool isTouching = false;
 	private GameObject thisObject;
-	private GameObject player3;
+	private GameObject player;
+	public ShamanPlayer sPlayer;
 	public float fallSpeed = 1f;
 	private bool grounded = true;
 	public Transform groundCheck;
@@ -22,7 +23,7 @@ public class PickUpObject : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		thisObject = this.gameObject;
-		player3 = GameObject.FindGameObjectWithTag("CarryPoint");
+		player = GameObject.FindGameObjectWithTag("CarryPoint");
 	}
 
 
@@ -44,13 +45,15 @@ public class PickUpObject : MonoBehaviour {
 			thisObject.transform.parent = null;
 			isHoldingSomething = false;
 			this.GetComponent<BoxCollider2D>().size = new Vector2 (1f , 1f);
+			sPlayer.anim.SetBool("PickingUp", false);
 		}
 
 		if (isHoldingSomething == false && Input.GetButton("PickUp") && isTouching == true)
 		{
-			thisObject.transform.parent = player3.transform;
+			thisObject.transform.parent = player.transform;
 			isHoldingSomething = true;
 			this.GetComponent<BoxCollider2D>().size = new Vector2 (.9f , 1f);
+			sPlayer.anim.SetBool("PickingUp", true);
 		}
 	}
 

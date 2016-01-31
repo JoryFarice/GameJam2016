@@ -44,7 +44,7 @@ public class ShamanPlayer : MonoBehaviour {
 
 	//public GameObject mcBullet;
 
-	private Animator anim;
+	public Animator anim;
 
 
 	//usually where you want to do physics stuff in unity
@@ -126,6 +126,7 @@ public class ShamanPlayer : MonoBehaviour {
 	{
 		Instantiate(mcBullet, playerShootPosition.position, playerShootPosition.rotation);
 		bulletCount++;
+
 	}
 
 
@@ -170,6 +171,7 @@ public class ShamanPlayer : MonoBehaviour {
 
 		if(Input.GetButtonDown("Shoot")  &&  bulletCount < 3)
 		{
+			anim.SetBool("Shooting", true);
 			shoot();
 		}
 

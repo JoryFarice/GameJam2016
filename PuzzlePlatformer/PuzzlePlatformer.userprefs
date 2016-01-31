@@ -1,9 +1,13 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/SelfDestructScript.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/PickUpObject.cs">
     <Files>
       <File FileName="Assets/Scripts/MovingPlatforms.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/SelfDestructScript.cs" Line="8" Column="3" />
+      <File FileName="Assets/Scripts/Bullet.cs" Line="42" Column="41" />
+      <File FileName="Assets/Scripts/ShamanPlayer.cs" Line="47" Column="8" />
+      <File FileName="Assets/Scripts/Destructible.cs" Line="12" Column="30" />
+      <File FileName="Assets/Scripts/PickUpObject.cs" Line="56" Column="42" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

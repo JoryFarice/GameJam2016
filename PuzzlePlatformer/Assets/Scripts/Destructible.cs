@@ -6,9 +6,10 @@ public class Destructible : MonoBehaviour
 
 	void OnCollisionEnter2D(Collision2D other)
 	{
-		if(other.gameObject.tag == ("Bullet"))
+		if(other.gameObject.tag == ("PlayerBullet"))
 		{
-			Destroy(this);
+			Destroy(this.gameObject);
+			Destroy(other.gameObject);
 		}
 	}
 }
